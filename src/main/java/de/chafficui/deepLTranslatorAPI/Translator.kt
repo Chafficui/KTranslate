@@ -69,6 +69,7 @@ class Translator(private val sourceLanguage: Language, private val targetLanguag
         @JvmStatic
         fun initialize(chromeDriverPath: String) {
             if(isInitialized) return
+            isInitialized = true
             System.setProperty("webdriver.chrome.driver", chromeDriverPath)
             Runtime.getRuntime().addShutdownHook(Thread {
                 closeAllDrivers()

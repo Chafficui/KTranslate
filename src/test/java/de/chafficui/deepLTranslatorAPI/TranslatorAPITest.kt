@@ -24,7 +24,7 @@ internal class TranslatorAPITest {
     @Test
     fun translateAPI() {
         TranslatorAPI.initialize("src/main/resources/chromedriver.exe")
-        val translatorAPI = TranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "180ba3f9-d82b-ebc0-5f0c-2eedf350fd55:fx")
+        val translatorAPI = TranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "APIKEY")
         val fullTime = System.currentTimeMillis()
         for (i in 0..50) {
             val text = "Hallo Welt?"

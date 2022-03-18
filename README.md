@@ -3,7 +3,7 @@
 
 ## OpenAI Translator
 - Uses OpenAI to translate strings to a target language.
-- Cost: ~ $0.0003 per 1k characters
+- Cost: ~$0.0003 per 1k characters
 - Time per translation: ~400ms
 - Highly variable accuracy
 - _Requires an openai api key._

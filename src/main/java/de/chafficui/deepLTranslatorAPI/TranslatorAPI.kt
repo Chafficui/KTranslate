@@ -8,14 +8,27 @@ import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 import java.nio.charset.StandardCharsets
 
-class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGLISH, private val targetLanguage: Language = Language.GERMAN, apiKey: String = "") {
+/**
+ * The translator API.
+ * A tranlation API that uses the DeepL API and website to localize text.
+ *
+ * Before creating an object of this class the TranslatorAPI needs to be initialized.
+ *
+ * @see [DeepL](https://www.deepl.com/)
+ *
+ * @author  Felix Beinßen
+ * @since   1.0
+ *
+ * @param sourceLanguage The source language.
+ * @param targetLanguage The target language.
+ */
+class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGLISH, private val targetLanguage: Language = Language.GERMAN) {
     private var deepLDriver: DeepLDriver? = null
     private var params: MutableMap<String, String>? = null
     private var client: HttpClient? = null
 
     init {
         if (!isInitialized) throw IllegalStateException("TranslatorAPI is not initialized!")
-        if(apiKey.isNotEmpty()) TranslatorAPI.apiKey = apiKey
     }
 
     private fun setupTranslate() {
@@ -40,7 +53,7 @@ class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGL
      * @param text The text to translate
      * @return The translated text
      */
-    fun translate(text: String): String {
+    fun freeTranslate(text: String): String {
         if(deepLDriver == null) setupTranslate()
         val deepLDriver = this.deepLDriver ?: throw IllegalStateException("Something went wrong!")
         if (text.isBlank()) throw IllegalArgumentException("Text is empty!")
@@ -72,7 +85,7 @@ class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGL
 
     /**
      * Translates the given text to the target language.
-     * Is way faster than the normal translate method, but requires an API key by deepL.com to use.
+     * Is way faster than the normal freeTranslate method, but requires an API key by deepL.com to use.
      * @param text Text to translate
      * @return Translated text
      */
@@ -94,10 +107,6 @@ class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGL
         return response.body().split("\"text\":\"")[1].split("\"")[0]
     }
 
-    fun quit() {
-        deepLDriver?.quit()
-    }
-
     private fun buildFormDataFromMap(data: Map<String, String>): HttpRequest.BodyPublisher? {
         val builder = StringBuilder()
         data.forEach {
@@ -117,14 +126,30 @@ class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGL
 
         var apiKey = ""
 
+        /**
+         * Initializes the TranslatorAPI.
+         * @param chromeDriverPath Path to the ChromeDriver.exe
+         * @param apiKey API key from deepL.com
+         */
         @JvmStatic
-        fun initialize(chromeDriverPath: String) {
+        fun initialize(chromeDriverPath: String = "", apiKey: String = "") {
             if (isInitialized) return
             isInitialized = true
+            if(apiKey.isNotBlank()) this.apiKey = apiKey
             System.setProperty("webdriver.chrome.driver", chromeDriverPath)
             Runtime.getRuntime().addShutdownHook(Thread {
                 DeepLDriver.closeAllDrivers()
             })
+        }
+
+        /**
+         * Initializes the TranslatorAPI.
+         * @param chromeDriverPath Path to the ChromeDriver.exe
+         * @param apiKey API key from deepL.com
+         */
+        @JvmStatic
+        fun initalize(apiKey: String = "", chromeDriverPath: String = "") {
+            initialize(chromeDriverPath, apiKey)
         }
     }
 }

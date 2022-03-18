@@ -30,7 +30,7 @@ println(translator.fastTranslate("Hallo Welt")) // --> "Hello World"
 - Time per translation: ~2000ms
 - Usually accurate
 - _Requires a copy of [chromedriver.exe](https://chromedriver.storage.googleapis.com/index.html) installed on your system._
-````
+````Kotlin
 DeepLTranslatorAPI.initialize(chromeDriverPath = "path/to/chromedriver.exe")
 val translator = DeepLTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH) //get your api key from open https://https://www.deepl.com/de/pro-account/summary
 println(translator.freeTranslate("Hallo Welt")) // --> "Hello World"

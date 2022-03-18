@@ -1,100 +1,160 @@
 package de.chafficui.deepLTranslatorAPI
 
-enum class Language(val srcPath: String, val targetPath: String) {
+enum class Language(val shortSrc: String, val shortTarget: String, val srcPath: String, val targetPath: String) {
     BULGARIAN(
+        "BG",
+        "BG",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[2]",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[1]"
     ),
     CHINESE(
+        "ZH",
+        "ZH",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[3]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[2]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[2]",
     ),
     DANISH(
+        "DA",
+        "DA",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[4]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[3]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[3]",
     ),
     GERMAN(
+        "DE",
+        "DE",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[5]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[4]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[4]",
     ),
-    ENGLISH(
+    BRITISH_ENGLISH(
+        "EN",
+        "EN-GB",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[6]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[5]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[5]",
+    ),
+    AMERICAN_ENGLISH(
+        "EN",
+        "EN-US",
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[6]",
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[5]",
     ),
     ESTONIAN(
+        "ET",
+        "ET",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[7]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[7]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[7]",
     ),
     FINNISH(
+        "FI",
+        "FI",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[8]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[8]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[8]",
     ),
     FRENCH(
+        "FR",
+        "FR",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[1]/button[9]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[9]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[1]/button[9]",
     ),
     GREEK(
+        "EL",
+        "EL",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[1]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[1]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[1]",
     ),
     ITALIAN(
+        "IT",
+        "IT",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[2]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[2]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[2]",
     ),
     JAPANESE(
+        "JA",
+        "JA",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[3]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[3]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[3]",
     ),
     LATVIAN(
+        "LV",
+        "LV",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[4]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[4]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[4]",
     ),
     LITHUANIAN(
+        "LT",
+        "LT",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[5]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[5]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[5]",
     ),
     DUTCH(
+        "NL",
+        "NL",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[6]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[6]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[6]",
     ),
     POLISH(
+        "PL",
+        "PL",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[7]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[7]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[7]",
     ),
     PORTUGUESE(
+        "PT",
+        "PT-PT",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[8]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[8]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[8]",
+    ),
+    PORTUGUESE_BRAZILIAN(
+        "PT",
+        "PT-BR",
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[8]",
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[2]/button[8]",
     ),
     ROMANIAN(
+        "RO",
+        "RO",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[2]/button[9]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[1]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[1]",
     ),
     RUSSIAN(
+        "RU",
+        "RU",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[1]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[2]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[2]",
     ),
     SWEDISH(
+        "SV",
+        "SV",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[2]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[3]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[3]",
     ),
     SLOVAKIAN(
+        "SK",
+        "SK",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[3]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[4]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[4]",
     ),
     SLOVENIAN(
+        "SL",
+        "SL",
         "//*[@id=\\\"panelTranslateText\\\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[4]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[5]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[5]",
     ),
     SPANISH(
+        "ES",
+        "ES",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[5]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[6]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[6]",
     ),
     CZECH(
+        "CS",
+        "CS",
         "//*[@id=\\\"panelTranslateText\\\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[6]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[7]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[7]",
     ),
     HUNGARIAN(
+        "HU",
+        "HU",
         "//*[@id=\"panelTranslateText\"]/div[3]/section[1]/div[3]/div[4]/div/div[3]/button[7]",
-        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[8]"
+        "//*[@id=\"panelTranslateText\"]/div[3]/section[2]/div[3]/div[7]/div/div[3]/button[8]",
     )
 }

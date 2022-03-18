@@ -3,7 +3,7 @@
 
 ## OpenAI Translator
 - Uses OpenAI to translate strings to a target language.
-- Cost: $0.0012 per 1k tokens
+- Cost: ~ $0.0003 per 1k characters
 - Time per translation: ~400ms
 - Highly variable accuracy
 - _Requires an openai api key._
@@ -20,7 +20,7 @@ System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
 
 ## DeepL Pro Translator
 - Uses the DeepL API to translate strings to a target language.
-- Cost: 20€ each 1,0000,000 characters
+- Cost: 0.02€ per 1k characters
 - Time per translation: ~200ms
 - Most accurate
 - _Requiures an DeepLPro api key._

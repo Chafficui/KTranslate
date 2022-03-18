@@ -7,12 +7,12 @@
 - Time per translation: ~400ms
 - Highly variable accuracy
 - _Requires an openai api key._    
-Kotlin:
+#### Kotlin:
 ````Kotlin
 val translator = OpenAITranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "YOUR_API_KEY") //get your api key from open https://openai.com/api/
 println(translator.translate("Hallo Welt")) // --> "Hello World"
 ````
-Java:
+#### Java:
 ````Java
 OpenAITranslatorAPI translator = new OpenAITranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "YOUR_API_KEY"); //get your api key from open https://openai.com/api/
 System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
@@ -24,11 +24,12 @@ System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
 - Time per translation: ~200ms
 - Most accurate
 - _Requiures an DeepLPro api key._    
+#### Kotlin
 ````Kotlin
 val translator = DeepLProTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "YOUR_API_KEY") //get your api key from open https://https://www.deepl.com/de/pro-account/summary
 println(translator.translate("Hallo Welt")) // --> "Hello World"
 ````
-Java:
+#### Java:
 ````Java
 DeepLProTranslatorAPI translator = new DeepLProTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "YOUR_API_KEY"); //get your api key from open https://https://www.deepl.com/de/pro-account/summary
 System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
@@ -40,11 +41,12 @@ System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
 - Time per translation: ~1500ms
 - Usually accurate
 - _Requires a copy of [chromedriver.exe](https://chromedriver.storage.googleapis.com/index.html) installed on your system._    
+#### Kotlin
 ````Kotlin
 val translator = DeepLFreeTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "path/to/your/chromedriver.exe")
 println(translator.translate("Hallo Welt")) // --> "Hello World"
 ````
-Java:
+#### Java:
 ````Java
 DeepLFreeTranslatorAPI translator = new DeepLFreeTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "path/to/your/chromedriver.exe");
 System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"

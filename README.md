@@ -1,5 +1,11 @@
 # KTranslate
-## An easy to use translation / localization api written in Kotlin.
+KTranslate is an easy to use TranslationAPI written in Kotlin, with currently 26 supported languages. It is very easy to use in Kotlin and Java projects via [Jitpack](https://jitpack.io/#Chafficui/KTranslate).
+
+## Summary
+- [OpenAI Translator](#openai-translator)
+- [DeepL Pro Translator](#deepl-pro-translator)
+- [DeepL Free Translator](#deepl-free-translator)
+- [Languages Supported](#languages-supported)
 
 ## OpenAI Translator
 - Uses OpenAI to translate strings to a target language.
@@ -35,9 +41,9 @@ DeepLProTranslatorAPI translator = new DeepLProTranslatorAPI(Language.GERMAN, La
 System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
 ````
 
-## DeepL FREE Translator
+## DeepL Free Translator
 - The only completely free method to translate. 
-- Cost: 0€
+- Cost: Completely free
 - Time per translation: ~1500ms
 - Usually accurate
 - _Requires a copy of [chromedriver.exe](https://chromedriver.storage.googleapis.com/index.html) installed on your system._    
@@ -51,3 +57,32 @@ println(translator.translate("Hallo Welt")) // --> "Hello World"
 DeepLFreeTranslatorAPI translator = new DeepLFreeTranslatorAPI(Language.GERMAN, Language.BRITISH_ENGLISH, "path/to/your/chromedriver.exe");
 System.out.println(translator.translate("Hallo Welt")); // --> "Hello World"
 ````
+
+## Languages Supported
+At the moment there are 26 languages supported.
+- Bulgarian
+- Chinese
+- Danish
+- German
+- British English
+- American English
+- Estonian
+- Finnish
+- French
+- Greek
+- Italian
+- Japanese
+- Latvian
+- Lithuanian
+- Dutch
+- Polish
+- Portuguese
+- Brazilian Portuguese
+- Romanian
+- Russian
+- Swedish
+- Slovakian
+- Slovenian
+- Spanish
+- Czech
+- Hungarian

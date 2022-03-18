@@ -1,7 +1,7 @@
 package de.chafficui.deepLTranslatorAPI.driver
 
 import de.chafficui.deepLTranslatorAPI.Language
-import de.chafficui.deepLTranslatorAPI.TranslatorAPI.Companion.isInitialized
+import de.chafficui.deepLTranslatorAPI.DeepLTranslatorAPI.Companion.isInitialized
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.chrome.ChromeDriver

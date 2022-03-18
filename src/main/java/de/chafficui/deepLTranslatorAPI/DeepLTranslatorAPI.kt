@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets
  * @param sourceLanguage The source language.
  * @param targetLanguage The target language.
  */
-class TranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGLISH, private val targetLanguage: Language = Language.GERMAN) {
+class DeepLTranslatorAPI(private val sourceLanguage: Language = Language.BRITISH_ENGLISH, private val targetLanguage: Language = Language.GERMAN) {
     private var deepLDriver: DeepLDriver? = null
     private var params: MutableMap<String, String>? = null
     private var client: HttpClient? = null

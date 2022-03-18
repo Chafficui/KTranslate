@@ -1,4 +1,4 @@
-package de.chafficui.deepLTranslatorAPI
+package de.chafficui
 
 enum class Language(val shortSrc: String, val shortTarget: String, val srcPath: String, val targetPath: String) {
     BULGARIAN(

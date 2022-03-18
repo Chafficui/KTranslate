@@ -1,18 +1,15 @@
-package de.chafficui.deepLTranslatorAPI.driver
+package de.chafficui.driver
 
-import de.chafficui.deepLTranslatorAPI.Language
-import de.chafficui.deepLTranslatorAPI.DeepLTranslatorAPI.Companion.isInitialized
+import de.chafficui.Language
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 
 class DeepLDriver {
-    private val driver: ChromeDriver
+    private val driver: ChromeDriver = ChromeDriver(options)
 
     init {
-        if(!isInitialized) throw IllegalStateException("Translator is not initialized!")
-        driver = ChromeDriver(options)
         drivers.add(driver)
         driver.get("https://www.deepl.com/translator")
         driver.executeScript(DISABLE_ANIMATIONS_SCRIPT)
